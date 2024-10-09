@@ -1,0 +1,14 @@
+services:
+  imgproxy:
+    image: darthsim/imgproxy:latest
+    stdin_open: true
+    tty: true
+  envoy:
+    image: envoyproxy/envoy:v1.31-latest
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+      - "9901:9901"
+      - "10000:10000"
+    depends_on:
+      - imgproxy
