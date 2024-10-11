@@ -1,6 +1,8 @@
 services:
   imgproxy:
     image: darthsim/imgproxy:latest
+    env_file:
+      - .env
     stdin_open: true
     tty: true
   envoy:
