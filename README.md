@@ -12,7 +12,7 @@ docker build --no-cache -f tool/Dockerfile -t my-golang-app .
 ```
 ### 署名付きURL用のKEY/SALT作成
 ```
-docker run --rm my-golang-app go run create_key.go 
+echo $(xxd -g 2 -l 64 -p /dev/random | tr -d '\n')
 ```
 出力されたものを.envに貼る
 ## imgproxy+envoy起動方法
