@@ -8,19 +8,14 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
 	key  := os.Getenv("IMGPROXY_KEY")
 	salt := os.Getenv("IMGPROXY_SALT")
 
 	var keyBin, saltBin []byte
+	var err error
 
 	if keyBin, err = hex.DecodeString(key); err != nil {
 		log.Fatal(err)

@@ -14,3 +14,12 @@ services:
       - "10000:10000"
     depends_on:
       - imgproxy
+  tool:
+    image: golang:1.22-alpine
+    working_dir: /app
+    env_file:
+      - .env
+    volumes:
+      - ./tool:/app
+    profiles:
+      - tool
