@@ -19,8 +19,9 @@ docker compose run -d
 ### tool/create_signed_path.goで条件と画像ファイルを設定
 ```
 processingOptions := "rs:fill:400:400"
-sourceUrl := "https://storage.googleapis.com/studio-design-asset-files/projects/7kadpxLza3/s-1616x792_v-fms_webp_b5774a47-5fde-4867-987a-3a2bb4664066.webp"
-path := fmt.Sprintf("/%s/plain/%s", processingOptions, sourceUrl)
+sourceUrl := {画像ファイルのパス}
+encodedUrl := base64.URLEncoding.EncodeToString([]byte(sourceUrl))
+path := fmt.Sprintf("/%s/%s", processingOptions, encodedUrl)
 ```
 ### 署名付きURL作成
 ```
@@ -28,5 +29,5 @@ docker compose run --rm tool go run create_signed_path.go
 ```
 ### 出力されたパスにアクセスする
 ```
-open http://localhost:10000/#{hogehoge}
+open http://localhost:10000/{hogehoge}
 ```
