@@ -26,7 +26,8 @@ func main() {
 	}
 
 	processingOptions := "thumb"
-	sourceUrl := "https://storage.googleapis.com/studio-design-asset-files/projects/7kadpxLza3/s-1616x792_v-fms_webp_b5774a47-5fde-4867-987a-3a2bb4664066.webp"
+	// sourceUrl := "https://storage.googleapis.com/studio-design-asset-files/projects/7kadpxLza3/s-1616x792_v-fms_webp_b5774a47-5fde-4867-987a-3a2bb4664066.webp"
+	sourceUrl := "s3://nishioka-testtest/public/uploads/ckeditor/pictures/44/2b00ee32-fa3a-41ee-b6ec-0de5d2c0a8b1.jpg"
 	path := fmt.Sprintf("/%s/plain/%s", processingOptions, sourceUrl)
 
 	mac := hmac.New(sha256.New, keyBin)
