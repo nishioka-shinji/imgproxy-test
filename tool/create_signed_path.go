@@ -29,7 +29,8 @@ func main() {
 	// sourceUrl := "s3://imgproxy-test-nishioka/anime.gif"
 	sourceUrl := "s3://imgproxy-test-nishioka/jpeg1.jpg"
 	// sourceUrl := "s3://imgproxy-test-nishioka/png4.png"
-	path := fmt.Sprintf("/%s/plain/%s", processingOptions, sourceUrl)
+	encodedUrl := base64.URLEncoding.EncodeToString([]byte(sourceUrl))
+	path := fmt.Sprintf("/%s/%s", processingOptions, encodedUrl)
 
 	mac := hmac.New(sha256.New, keyBin)
 	mac.Write(saltBin)
