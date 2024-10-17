@@ -27,8 +27,9 @@ func main() {
 
 	processingOptions := "thumb"
 	// sourceUrl := "s3://imgproxy-test-nishioka/anime.gif"
-	sourceUrl := "s3://imgproxy-test-nishioka/jpeg1.jpg"
+	// sourceUrl := "s3://imgproxy-test-nishioka/jpeg1.jpg"
 	// sourceUrl := "s3://imgproxy-test-nishioka/png4.png"
+	sourceUrl := "local:///image.jpg"
 	encodedUrl := base64.URLEncoding.EncodeToString([]byte(sourceUrl))
 	path := fmt.Sprintf("/%s/%s", processingOptions, encodedUrl)
 

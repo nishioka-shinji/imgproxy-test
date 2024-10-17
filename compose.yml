@@ -3,6 +3,8 @@ services:
     image: darthsim/imgproxy:latest
     env_file:
       - .env
+    volumes:
+      - ./sample_images:/app/sample_images
     stdin_open: true
     tty: true
   envoy:
