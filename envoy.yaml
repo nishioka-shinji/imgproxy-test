@@ -23,7 +23,7 @@ static_resources:
               - match:
                   safe_regex:
                     google_re2: {}
-                    regex: ".*/thumb/.*"
+                    regex: "^[0-9a-zA-Z]+/thumb/[0-9a-zA-Z]+$"
                 route: { cluster: some_service }
           http_filters:
           - name: envoy.filters.http.router
